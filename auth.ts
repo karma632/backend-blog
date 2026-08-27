@@ -12,6 +12,11 @@ import { PrismaClient } from './src/generated/prisma/client';
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
 
+console.log("GOOGLE ID:", !!process.env.GOOGLE_CLIENT_ID);
+  console.log("GOOGLE SECRET:", !!process.env.GOOGLE_CLIENT_SECRET);
+  console.log("GITHUB ID:", !!process.env.GITHUB_CLIENT_ID);
+  console.log("GITHUB SECRET:", !!process.env.GITHUB_CLIENT_SECRET);
+
 export const auth = betterAuth({
   trustedOrigins: [process.env.UI_URL!],
   baseURL: process.env.BETTER_AUTH_URL,
@@ -50,5 +55,10 @@ export const auth = betterAuth({
       enabled: true,
       trustedProviders: ["google", "github"],
     },
+
+    
   },
+
+  
+
 });
