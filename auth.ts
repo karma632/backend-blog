@@ -7,7 +7,7 @@ import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from './src/generated/prisma/client';
 
-console.log("🔥🔥🔥 AUTH.TS IS LOADING 🔥🔥🔥");
+console.log("🔥🔥🔥 AUTH.TS IS LOADING now🔥🔥🔥");
 
 // Better Auth gets its own Prisma client (separate from the Nest PrismaService).
 // Same driver adapter so it talks to the same Postgres database.
