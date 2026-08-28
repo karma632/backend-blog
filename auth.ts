@@ -7,17 +7,10 @@ import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from './src/generated/prisma/client';
 
-console.log("🔥🔥🔥 AUTH.TS IS LOADING now🔥🔥🔥");
-
 // Better Auth gets its own Prisma client (separate from the Nest PrismaService).
 // Same driver adapter so it talks to the same Postgres database.
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
-
-console.log("GOOGLE ID:", !!process.env.GOOGLE_CLIENT_ID);
-  console.log("GOOGLE SECRET:", !!process.env.GOOGLE_CLIENT_SECRET);
-  console.log("GITHUB ID:", !!process.env.GITHUB_CLIENT_ID);
-  console.log("GITHUB SECRET:", !!process.env.GITHUB_CLIENT_SECRET);
 
 export const auth = betterAuth({
   trustedOrigins: [process.env.UI_URL!],
@@ -57,10 +50,5 @@ export const auth = betterAuth({
       enabled: true,
       trustedProviders: ["google", "github"],
     },
-
-    
   },
-
-  
-
 });
