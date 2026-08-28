@@ -18,7 +18,7 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  // @Public()
+  @Public()
   @Patch(":id/role")
   updateRole(
     @Param("id") id: string,
@@ -27,4 +27,5 @@ export class UserController {
 
     return this.userService.updateRole(id, body.role);
   }
+
 }
