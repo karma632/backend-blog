@@ -33,6 +33,17 @@ export const auth = betterAuth({
     },
   },
 
+  advanced: {
+    useSecureCookies: true,
+
+    defaultCookieAttributes: {
+      secure: true,
+      httpOnly: true,
+      sameSite: "lax",
+      path: "/",
+    },
+  },
+
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID!,
