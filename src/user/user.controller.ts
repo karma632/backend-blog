@@ -18,7 +18,8 @@ export class UserController {
     return this.userService.findAll();
   }
 
-  @Public()
+  // @Public()
+  @Roles(["ADMIN"])
   @Patch(":id/role")
   updateRole(
     @Param("id") id: string,
