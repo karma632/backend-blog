@@ -13,7 +13,7 @@ export class UserController {
 
   // @AllowAnonymous()
   @Get("all-users")
-  // @Roles(['ADMIN'])
+  @Roles(['ADMIN'])
   findAll(){
     return this.userService.findAll();
   }
