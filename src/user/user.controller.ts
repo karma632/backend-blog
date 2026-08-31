@@ -11,14 +11,14 @@ export class UserController {
     return{};
   }
 
-  // @AllowAnonymous()
+
   @Roles(['ADMIN'])
   @Get("all-users")
   findAll(){
     return this.userService.findAll();
   }
 
-  // @Public()
+  
   @Roles(["ADMIN"])
   @Patch(":id/role")
   updateRole(
