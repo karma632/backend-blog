@@ -11,9 +11,9 @@ export class UserController {
     return{};
   }
 
-  @AllowAnonymous()
-  @Get("all-users")
+  // @AllowAnonymous()
   @Roles(['ADMIN'])
+  @Get("all-users")
   findAll(){
     return this.userService.findAll();
   }
