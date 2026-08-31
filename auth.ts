@@ -34,6 +34,8 @@ export const auth = betterAuth({
   },
 
   advanced: {
+    trustedProxyHeaders: true,
+
     useSecureCookies: true,
 
     defaultCookieAttributes: {
@@ -62,4 +64,5 @@ export const auth = betterAuth({
       trustedProviders: ["google", "github"],
     },
   },
+
 });
