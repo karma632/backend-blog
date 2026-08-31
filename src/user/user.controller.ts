@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Patch, Body, ForbiddenException, Req} from '@nestjs/common';
 import { UserService } from './user.service';
-import { Public, Roles } from '@thallesp/nestjs-better-auth';
+import { AllowAnonymous, Public, Roles } from '@thallesp/nestjs-better-auth';
 
 @Controller('user')
 export class UserController {
@@ -11,7 +11,7 @@ export class UserController {
     return{};
   }
 
-  @Public()
+  // @AllowAnonymous()
   @Get("all-users")
   // @Roles(['ADMIN'])
   findAll(){

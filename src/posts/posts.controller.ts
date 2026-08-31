@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { Public, Roles } from '@thallesp/nestjs-better-auth';
+import { AllowAnonymous, Public, Roles } from '@thallesp/nestjs-better-auth';
 import { FileInterceptor } from "@nestjs/platform-express";
 
 @Controller('posts')
@@ -15,13 +15,13 @@ export class PostsController {
     return this.postsService.create(createPostDto);
   }
 
-  @Public()
+  @AllowAnonymous()
   @Get("all-post")
   findAll(){
     return this.postsService.findAll( );
   }
 
-  @Public()
+  @AllowAnonymous()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.postsService.findOne(id);
