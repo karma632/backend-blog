@@ -11,7 +11,7 @@ export class UserController {
     return{};
   }
 
-  // @AllowAnonymous()
+  @AllowAnonymous()
   @Get("all-users")
   @Roles(['ADMIN'])
   findAll(){
